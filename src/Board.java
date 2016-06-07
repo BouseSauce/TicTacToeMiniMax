@@ -150,14 +150,16 @@ public class Board {
         return pointsAndScores.get(best).point;
     }
     Scanner scan = new Scanner(System.in);
-
+    //Assumes correct input
     void takeHumanInput() {
-        System.out.println("Your move: ");
+        System.out.println("Your move. Row: ");
         int x = scan.nextInt();
+        System.out.println("Collum: ");
         int y = scan.nextInt();
         Point point = new Point(x, y);
         placeAMove(point, 2);
-    }
+}
+
 
     public void displayBoard() {
         System.out.println();
@@ -176,15 +178,13 @@ public class Board {
         Point p = new Point(rand.nextInt(3), rand.nextInt(3));
         placeAMove(p, 1);
     }
-
+    //Bot that places move at random
     public Point randomComputerAI()
     {
         List<Point> avaliableMoves = getAvailableStates();
         Random random = new Random();
         int randNum = random.nextInt(getAvailableStates().size());
         return avaliableMoves.get(randNum);
-
-
     }
 
     public static void main(String[] args) {
